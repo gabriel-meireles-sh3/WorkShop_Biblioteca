@@ -1,0 +1,9 @@
+*
+!private/
+!public/
+!.gitignore
+
+!access-api/
+!access-api/Auth/
+!access-api/Auth/*.php
+!access-api/*

@@ -1,0 +1,24 @@
+extend type Query {
+    "Obter informações do usuário logado"
+    me: User! @field(resolver: "App\\GraphQL\\Auth\\Me")
+}
+
+extend type Mutation {
+    "Cadastrar novo usuário"
+    register(
+        name: String! @rules(apply: ["required","string"]),
+        email: String! @rules(apply: ["required","string","email","unique:users"]),
+        password: String! @rules(apply: ["required","min:6"])
+    ): User! @field(resolver: "App\\GraphQL\\Auth\\Register")
+
+    "Fazer login em uma nova sessão e obter usuário"
+    login(
+        email: String!, password: String!
+    ): User! @field(resolver: "App\\GraphQL\\Auth\\LoginJwt")
+
+    "Fazer logout da sessão atual"
+    logout: Boolean! @guard @field(resolver: "App\\GraphQL\\Auth\\LogoutJwt")
+
+    "Invalidar token atual e obter usuário com novo token"
+    refreshToken: User! @field(resolver: "App\\GraphQL\\Auth\\RefreshTokenJwt")
+}
