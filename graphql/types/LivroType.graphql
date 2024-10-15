@@ -1,0 +1,9 @@
+type Livro {
+    id: ID!
+    titulo: String!
+    anoPublicacao: Int! 
+    descricao: String!
+    autores: [Autor!]! @belongsToMany
+    categorias: [Categoria!]! @belongsToMany
+    comentario: Comentario @belongsTo
+}

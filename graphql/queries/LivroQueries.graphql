@@ -1,0 +1,6 @@
+#import ../types/LivroType.graphql
+
+extend type Query {
+    livro(id: ID!): Livro @find
+    livros: [Livro]! @all
+}

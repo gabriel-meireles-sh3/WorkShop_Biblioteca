@@ -1,0 +1,6 @@
+#import ../types/AutorType.graphql
+
+extend type Query {
+    autor(id: ID!): Autor @find
+    autores: [Autor]! @all
+}

@@ -1,0 +1,6 @@
+#import ../types/CategoriaType.graphql
+
+extend type Query {
+    comentario(id: ID!): Comentario @find
+    comentarios: [Comentario]! @all
+}

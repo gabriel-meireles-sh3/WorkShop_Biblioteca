@@ -1,0 +1,21 @@
+extend type Mutation {
+    createLivro(
+        titulo: String!
+        anoPublicacao: Int!
+        descricao: String!
+        autores: [ID!]! # Recebe IDs de autores
+        categorias: [ID!]! # Recebe IDs de categorias
+        comentario: ID! # Recebe o ID do comentário
+    ): Livro! @create(relations: ["autores", "categorias"]) # Relaciona automaticamente autores e categorias
+    updateLivro(
+        id: ID! @whereKey
+        titulo: String
+        anoPublicacao: Int
+        descricao: String
+        autores: [ID!] # IDs dos autores
+        categorias: [ID!] # IDs das categorias
+        comentario: ID # ID do comentário
+    ): Livro! @update(relations: ["autores", "categorias"]) # Atualiza relações com autores e categorias
+    deleteLivro(id: ID @whereKey): Livro! @delete
+    restoreLivro(id: ID @whereKey): Livro! @restore
+}

@@ -1,0 +1,6 @@
+#import ../types/CategoriaType.graphql
+
+extend type Query {
+    categoria(id: ID!): Categoria @find
+    categorias: [Categoria]! @all
+}

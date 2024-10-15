@@ -1,0 +1,4 @@
+type Comentario{
+    id: ID!
+    comentario: String!
+}

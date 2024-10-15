@@ -1,0 +1,8 @@
+#import ../types/CategoriaType.graphql
+
+extend type Mutation{
+    createCategoria(nome: String!): Categoria! @create
+    updateCategoria(id: ID! @whereKey, nome: String): Categoria! @update
+    deleteCategoria(id: ID @whereKey): Categoria! @delete
+    restoreCategoria(id: ID @whereKey): Categoria! @restore
+}

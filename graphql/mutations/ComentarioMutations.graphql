@@ -1,0 +1,8 @@
+#import ../types/ComentarioType.graphql
+
+extend type Mutation{
+    createComentario(comentario: String!): Comentario! @create
+    updateComentario(id: ID! @whereKey, comentario: String): Comentario! @update
+    deleteComentario(id: ID @whereKey): Comentario! @delete
+    restoreComentario(id: ID @whereKey): Comentario! @restore
+}

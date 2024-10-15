@@ -1,0 +1,8 @@
+#import ../types/AutorType.graphql
+
+extend type Mutation{
+    createAutor(nome: String!, biografia: String!): Autor! @create
+    updateAutor(id: ID! @whereKey, nome: String, biografia: String): Autor! @update
+    deleteAutor(id: ID @whereKey): Autor! @delete
+    restoreAutor(id: ID @whereKey): Autor! @restore
+}
